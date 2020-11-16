@@ -1,0 +1,51 @@
+---
+title: "Penguin plots"
+output: 
+  html_document:
+    keep_md: TRUE
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.retina = 2,
+  fig.align = 'center',
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+
+```{r setup, warning=FALSE, message=FALSE}
+library(DT)
+source("plots.R")
+```
+
+Plots adapted from 
+https://github.com/allisonhorst/palmerpenguins/blob/master/vignettes/examples.Rmd
+
+## Penguin data
+
+This dataset has been proposed as an alternative to the widely used iris dataset.
+This is what it looks like.
+
+```{r dataset}
+DT::datatable(penguins)
+```
+
+## Plotting some of the data  
+
+```{r}
+penguin_boxplot("flipper_length_mm")  
+
+penguin_boxplot("body_mass_g") 
+```
+
+
+
+```{r}
+penguin_scatter("flipper_length_mm", "body_mass_g")
+
+penguin_scatter("bill_length_mm", "body_mass_g")
+```
